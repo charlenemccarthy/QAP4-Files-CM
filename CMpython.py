@@ -5,6 +5,8 @@
 # Imports
 
 import datetime
+import sys
+import time
 
 # Constants
 
@@ -210,6 +212,40 @@ while True:
             RemainingDsp = "${:,.2f}".format(Remaining)
             print(f"           {PaymentDateDsp}                    {MonthlyPayDsp:>9s}                         {RemainingDsp:>9s}")
         print("----------------------------------------------------------------------------------------------")
+    
+    for _ in range(5):
+        print('Saving claim data ...', end='\r')
+        time.sleep(.3)
+        sys.stdout.write('\033[2K\r')
+        time.sleep(.3)
+
+    f = open("claims.dat", "a")
+
+    f.write("{}, ".format(ClaimDateDsp))
+    f.write("{}, ".format(PolicyNum))
+    f.write("{}, ".format(CustName))
+    f.write("{}, ".format(StAdd))
+    f.write("{}, ".format(Add))
+    f.write("{}, ".format(PhoNum))
+    f.write("{}, ".format(str(NumCars)))
+    f.write("{}, ".format(ExtraLibDsp))
+    f.write("{}, ".format(GlassCovDsp))
+    f.write("{}, ".format(LoanerCarDsp))
+    f.write("{}, ".format(AddCarDiscDsp))
+    f.write("{}, ".format(HSTDsp))
+    f.write("{}, ".format(TotalChargesDsp))
+    f.write("{}, ".format(PayMethodDsp))
+    f.write("{}, ".format(DownPayDsp))
+    f.write("{}, ".format(TodayPaymentDsp))
+    f.write("{}, ".format(MonthlyPayDsp))
+
+    f.close()
+
+    print()
+    print("Claim data successfully saved ...", end='\r')
+    time.sleep(1)
+    sys.stdout.write('\033[2K\r')
+
     ClaimInfo = (ClaimNum, ClaimDate, TotalCharges)
     ClaimInfoLst.append(ClaimInfo)      
     print("          Claim #:                      Claim Date:                      Claim Amount:")
@@ -220,3 +256,5 @@ while True:
     print("                            Thank you and have a great day!")
     
 # Housekeeping
+    
+# GitHub perma-link https://github.com/charlenemccarthy/QAP4/blob/167b6e42f1a0bdebcbc656c701644e4f1a272949/CMpython.py
