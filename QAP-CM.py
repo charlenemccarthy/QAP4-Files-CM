@@ -96,8 +96,11 @@ while True:
     ClaimDate = CLAIM_DATE
 
     PolicyNum = "1944"
-    CustFName = input("Enter the customer's first name or enter END to exit: ").title()
-    if CustFName == "END":
+    CustFName = input("Enter the customer's first name or enter X to exit: ").title()
+    if CustFName == "X":
+        print()
+        print("                            Thank you and have a great day!")
+        print()
         break
     CustLName = input("Enter customer's last name: ").title()
     StAdd = input("Enter customer's street address: ").title()
@@ -252,8 +255,6 @@ while True:
     print("----------------------------------------------------------------------------------------------")  
     for ClaimNum, ClaimDate, TotalCharges in ClaimInfoLst:
         print(f"           {ClaimNum:>04d}                         {ClaimDateDsp:>10s}                         {TotalChargesDsp:>9s}")
-    print()
-    print("                            Thank you and have a great day!")
     
 # Housekeeping
     
