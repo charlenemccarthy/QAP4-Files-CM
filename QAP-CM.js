@@ -6,7 +6,7 @@ const Customer = {
     Name: "Charlene McCarthy",
     BirthDate: "1993/02/18",
     Gender: "Female",
-    RoomPref: ["Extra Bed", "ExtraKey", "Late Check-Out"],
+    RoomPref: ["Early Check-Out", "Extra Bed", "Extra Key", "Late Check-Out"],
     PaymentMethod: "Cash",
     CreditCardNum: "1234123412341234",
     PhoneNum: "7096821392",
